@@ -18,8 +18,8 @@ class WeirdHolidays::CLI
 		while input != "exit"
 			puts "Enter the number of a holiday to get more info on it, type 'list' to see them all again, or type 'exit' to leave the program: "
 			input = gets.strip.downcase 
-			if input.to_i > 0
-				WeirdHolidays::Holiday.scrape_descriptions(input)
+			if input.to_i > 0 
+				WeirdHolidays::Holiday.scrape_description(input.to_i)
 			elsif input == "list"
 				list_holidays
 			elsif input == "exit"
