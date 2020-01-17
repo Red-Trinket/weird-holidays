@@ -1,6 +1,8 @@
-require "weird_holidays/version"
+require "open-uri"
+require "nokogiri"
+require "pry"
 
-module WeirdHolidays
-  class Error < StandardError; end
-  # Your code goes here...
-end
+require_relative "./weird_holidays/cli.rb"
+require_relative "./weird_holidays/holiday"
+require_relative "./weird_holidays/version"
+
