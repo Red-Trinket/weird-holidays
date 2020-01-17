@@ -27,7 +27,7 @@ class WeirdHolidays::CLI
 			elsif input == "exit"
 				puts "Goodbye! Remember to check back tomorrow to see what weird holiday it is!"
 			else
-				puts "I'm not sure what you want me to do. Type list or exit."
+				puts "I'm not sure what you want me to do. Type list or exit." 
 			end 
 		end 
 	end

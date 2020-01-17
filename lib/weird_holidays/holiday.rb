@@ -38,7 +38,7 @@ class WeirdHolidays::Holiday
         @nodeset_two = @checkiday_doc.css('a')
         @@holiday_two.url =  @nodeset_two.map{|element| element["href"]}.compact[20]
         @holiday_two_doc = Nokogiri::HTML(open("#{@@holiday_two.url}"))
-        @@holiday_two.description = @holiday_two_doc.css('p')[0].text.strip
+        @@holiday_two.description = @holiday_two_doc.css('p')[0].text.strip 
         puts "\n\n" + @@holiday_two.description + "\n\n" 
     end 
 end 
