@@ -26,6 +26,24 @@ class WeirdHolidays::Holiday
         @holidays << @@holiday_two
     end 
 
+    def self.scrape_description(holiday)
+        if holiday == 1 
+            @nodeset_one = @natl_doc.css('a')
+            @@holiday_one.url = @nodeset_one.map{|element| element["href"]}.compact[35]
+            @holiday_one_doc = Nokogiri::HTML(open("#{@@holiday_one.url}"))
+            @@holiday_one.description = @holiday_one_doc.css('p')[1].text.strip 
+            puts "\n\n" + @@holiday_one.description + "\n\n"
+        elsif holiday == 2
+            @nodeset_two = @checkiday_doc.css('a')
+            @@holiday_two.url =  @nodeset_two.map{|element| element["href"]}.compact[20]
+            @holiday_two_doc = Nokogiri::HTML(open("#{@@holiday_two.url}"))
+            @@holiday_two.description = @holiday_two_doc.css('p')[0].text.strip 
+            puts "\n\n" + @@holiday_two.description + "\n\n" 
+        else 
+            puts "I don't know which holiday you want. Please enter a valid holiday's number, enter 'list' to see them all again, or enter 'exit' to leave the program."
+        end 
+    end 
+    
     def self.scrape_description_one
         @nodeset_one = @natl_doc.css('a')
         @@holiday_one.url = @nodeset_one.map{|element| element["href"]}.compact[35]
