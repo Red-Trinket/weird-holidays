@@ -1,6 +1,5 @@
 #!/usr/bin/env ruby
 require "bundler/setup"
 require "weird_holidays"
-require '../lib/weird_holidays.rb'
 
 WeirdHolidays::CLI.new.call
